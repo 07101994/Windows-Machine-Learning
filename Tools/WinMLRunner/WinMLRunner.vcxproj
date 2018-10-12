@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.props" Condition="Exists('packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -29,6 +30,9 @@
     <ClInclude Include="OutputHelper.h" />
     <ClInclude Include="ModelBinding.h" />
     <ClInclude Include="TimerHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <CppWinRTEnabled>true</CppWinRTEnabled>
@@ -145,5 +149,14 @@
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.targets" Condition="Exists('packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.props'))" />
+    <Error Condition="!Exists('packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.targets'))" />
+  </Target>
 </Project>
