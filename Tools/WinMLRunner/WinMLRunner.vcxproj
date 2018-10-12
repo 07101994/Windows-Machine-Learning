@@ -39,8 +39,8 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{81EA9CC6-8A26-4583-B1A4-84740EF815C8}</ProjectGuid>
     <RootNamespace>Benchmark</RootNamespace>
-    <WindowsTargetPlatformVersion Condition="'$(TargetPlatformVersion)' == ''">10.0.17763.0</WindowsTargetPlatformVersion>
     <ProjectName>WinMLRunner</ProjectName>
+    <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
