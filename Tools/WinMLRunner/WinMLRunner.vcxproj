@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.props" Condition="Exists('packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -31,16 +30,13 @@
     <ClInclude Include="ModelBinding.h" />
     <ClInclude Include="TimerHelper.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <CppWinRTEnabled>true</CppWinRTEnabled>
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{81EA9CC6-8A26-4583-B1A4-84740EF815C8}</ProjectGuid>
     <RootNamespace>Benchmark</RootNamespace>
     <ProjectName>WinMLRunner</ProjectName>
-    <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">10.0.17763.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -149,14 +145,5 @@
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-    <Import Project="packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.targets" Condition="Exists('packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.targets')" />
-  </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.props'))" />
-    <Error Condition="!Exists('packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MS.Uwp.RS5RLS.10.0.17763.1\build\MS.Uwp.RS5RLS.targets'))" />
-  </Target>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>
